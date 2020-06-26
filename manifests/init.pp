@@ -24,8 +24,8 @@ class wildfly (
   },
 ) {
 
-  unless ("${facts['os']['family']}${facts['os']['release']['major']}" =~ /(RedHat(6|7))/) {
-    fail("Module ${module_name} is not supported on ${::facts['os']['family']} ${::facts['os']['release']['major']}.")
+  unless ("${facts['operatingsystem']}${facts['operatingsystemrelease']}" =~ /((RedHat(6|7))|(Amazon2))/) {
+    fail("Module ${module_name} is not supported on ${::facts['operatingsystem']} ${::facts['operatingsystemrelease']}.")
   }
 }
 
